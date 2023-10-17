@@ -2,6 +2,8 @@ package use_case.clear_users;
 
 // TODO Complete me
 
+import java.util.ArrayList;
+
 public class ClearInteractor implements ClearInputBoundary {
     final ClearUserDataAccessInterface userDataAccessObject;
     final ClearOutputBoundary clearPresenter;
@@ -11,8 +13,9 @@ public class ClearInteractor implements ClearInputBoundary {
         this.clearPresenter = clearPresenter;
     }
 
-    public void execute(){
-        userDataAccessObject.clear();
+    public ArrayList<String> execute(){
+        ArrayList<String> deleted_users = userDataAccessObject.clear();
         clearPresenter.prepareSuccessView();
+        return deleted_users;
     }
 }

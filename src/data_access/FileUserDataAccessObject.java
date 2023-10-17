@@ -8,6 +8,7 @@ import use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -97,8 +98,14 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         return accounts.containsKey(identifier);
     }
     @Override
-    public void clear() {
+    public ArrayList<String> clear() {
+        ArrayList<String> deleted_users = new ArrayList<>();
+        for (String key : accounts.keySet()) {
+            deleted_users.add(get(key).getName());
+            System.out.println(accounts.get(key).getName());
+        }
         accounts.clear();
         this.save();
+        return deleted_users;
     }
 }
