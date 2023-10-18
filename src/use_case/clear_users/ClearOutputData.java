@@ -12,4 +12,6 @@ public class ClearOutputData {
     }
 
     public ArrayList<String> getDeleted_users() { return deleted_users;}
+
+    public void setDeleted_users(ArrayList<String> deleted_users) {this.deleted_users = deleted_users;}
 }

@@ -101,8 +101,8 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
     public ArrayList<String> clear() {
         ArrayList<String> deleted_users = new ArrayList<>();
         for (String key : accounts.keySet()) {
-            deleted_users.add(get(key).getName());
-            System.out.println(accounts.get(key).getName());
+            deleted_users.add(key);
+            System.out.println(key);
         }
         accounts.clear();
         this.save();

@@ -5,6 +5,9 @@ package interface_adapter.clear_users;
 import interface_adapter.ViewManagerModel;
 import interface_adapter.signup.SignupViewModel;
 import use_case.clear_users.ClearOutputBoundary;
+import use_case.clear_users.ClearOutputData;
+
+import java.util.ArrayList;
 
 public class ClearPresenter implements ClearOutputBoundary {
     private final SignupViewModel signupViewModel;
@@ -16,8 +19,9 @@ public class ClearPresenter implements ClearOutputBoundary {
     }
 
     @Override
-    public void prepareSuccessView() {
+    public void prepareSuccessView(ClearOutputData users) {
         // Popout to be added here
         System.out.println("Users have been cleared");
+        ArrayList<String> deleted_users = users.getDeleted_users();
     }
 }
