@@ -1,6 +1,7 @@
 package interface_adapter.clear_users;
 
 import use_case.clear_users.ClearInputBoundary;
+import use_case.clear_users.ClearOutputData;
 
 // TODO Complete me
 // there is no data to give to the ClearController

@@ -86,6 +86,7 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                         if (e.getSource().equals(clear)) {
                             clearController.execute();
                             System.out.println("Clear Button Clicked");
+
                         }
                     }
                 }
@@ -179,6 +180,9 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
         SignupState state = (SignupState) evt.getNewValue();
         if (state.getUsernameError() != null) {
             JOptionPane.showMessageDialog(this, state.getUsernameError());
+        }
+        else if (state.getDeletedUsers() !=  null) {
+            JOptionPane.showMessageDialog(this, state.getDeletedUsers());
         }
     }
 }

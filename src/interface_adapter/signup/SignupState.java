@@ -1,5 +1,9 @@
 package interface_adapter.signup;
 
+import use_case.clear_users.ClearOutputData;
+
+import java.util.ArrayList;
+
 public class SignupState {
     private String username = "";
     private String usernameError = null;
@@ -7,6 +11,7 @@ public class SignupState {
     private String passwordError = null;
     private String repeatPassword = "";
     private String repeatPasswordError = null;
+    private String deletedUsers = null;
 
     public SignupState(SignupState copy) {
         username = copy.username;
@@ -68,6 +73,15 @@ public class SignupState {
     public void setRepeatPasswordError(String repeatPasswordError) {
         this.repeatPasswordError = repeatPasswordError;
     }
+
+    public void setDeletedUsers(ClearOutputData clearOutputData) {
+        this.deletedUsers = "";
+        for (String username : clearOutputData.getDeleted_users()) {
+            deletedUsers = deletedUsers + username + '\n';
+        }
+    }
+
+    public String getDeletedUsers() { return deletedUsers;}
 
     @Override
     public String toString() {
